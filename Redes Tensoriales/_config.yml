@@ -11,3 +11,14 @@ copyright                   : "2021"  # Copyright year to be placed in the foote
 logo                        : logo.jpg  # A path to the book logo
 bibtex_bibfiles:
     - references.bib
+
+repository:
+  url                       : https://github.com/mcditoos/TensorNetworkBook.github.io
+  path_to_book              : /Redes Tensoriales/
+  branch                    : main
+
+html:
+  home_page_in_navbar         : false
+  use_edit_page_button        : true
+  use_repository_button       : true
+  use_issue_button            : true
