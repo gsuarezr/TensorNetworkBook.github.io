@@ -52,7 +52,7 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 
 
 
-* El vector $\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}$, es un tensor de rango 100, necesitamos un indice para referirnos a alguno de sus elementos (i.e $i=1,2$)
+* El vector $\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}$, es un tensor de rango $100$, necesitamos un indice para referirnos a alguno de sus elementos (i.e $i=1,2$)
 
 
 
