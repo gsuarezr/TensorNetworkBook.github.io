@@ -13,7 +13,7 @@ logo                        : logo.jpg  # A path to the book logo
 
 repository:
   url                       : https://github.com/mcditoos/TensorNetworkBook.github.io
-  path_to_book              : /Redes Tensoriales/
+  path_to_book              : /RedesTensoriales/
   branch                    : main
 
 html:
