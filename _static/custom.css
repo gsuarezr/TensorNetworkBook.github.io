@@ -340,3 +340,9 @@ button.btn.btn-secondary.topbarbtn{
     color: #f1f1f1;
     margin-bottom: 3em;
 }
+
+p.caption span.caption-text{
+    color: #f1f1f1;
+    font-weight: bold;
+    font-size: 1.3em;
+}

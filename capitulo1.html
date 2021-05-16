@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bienvenidos a introducción a las redes tensoriales &#8212; Introduccion a las Redes tensoriales</title>
+    <title>1. Capítulo 1 &#8212; Introduccion a las Redes tensoriales</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,9 +50,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Capítulo 1" href="capitulo1.html" />
+    <link rel="next" title="1. Pendientes" href="pendientes.html" />
+    <link rel="prev" title="Bienvenidos a introducción a las redes tensoriales" href="introduccion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,9 +90,9 @@
   Preliminares
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="capitulo1.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    1. Capítulo 1
   </a>
  </li>
@@ -166,7 +169,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/introduccion.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/capitulo1.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -186,7 +189,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/mcditoos/TensorNetworkBook.github.io/edit/main//Redes Tensoriales/introduccion.md"><button
+        <a class="edit-button" href="https://github.com/mcditoos/TensorNetworkBook.github.io/edit/main//Redes Tensoriales/capitulo1.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -206,6 +209,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   1.1. Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-tensor">
+   1.2. Que es un Tensor?
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -214,15 +235,50 @@
         
               <div>
                 
-  <div class="section" id="bienvenidos-a-introduccion-a-las-redes-tensoriales">
-<h1>Bienvenidos a introducción a las redes tensoriales<a class="headerlink" href="#bienvenidos-a-introduccion-a-las-redes-tensoriales" title="Permalink to this headline">¶</a></h1>
-<p>Este es un libro introductorio, surge como una iniciativa para incentivar la participación proactiva en un grupo de estudio de la comunidad sin nombre. Está escrito por personas aprendiendo este tema, por lo que te invitamos a leerlo con un ojo muy critico y enviarnos tus sugerencias. El libro tiene como objetivo desarrollar nuestros conocimientos. Además, de generar material introductorio para que nuevos grupos puedan utilizar y mejorar.</p>
-<p>El libro es escrito por estudiantes del tema y desde este momento nos disculpamos por las fallas que puede contener tanto técnicos como gramaticales. Sin embargo si encuentras algún error, piensas que una explicacion no es precisa, o tienes ideas para la mejora del material puedes subir un PR y colaborar con este libro comunitario.</p>
-<p>Para colaborar con nosotros por favor sigue esta guía de estilo <a class="reference internal" href="estilo.html"><span class="doc std std-doc">enlace en línea</span></a> además te invitamos a leer nuestro <a class="reference internal" href="conducta.html"><span class="doc std std-doc">codigo de conducta</span></a>. Sin más que decir esperamos que disfrutes del material y te invitamos a colaborar. Cualquier sugerencia o problema con el libro puedes notificarlo a <a class="reference external" href="mailto:gerardofingurbe&#37;&#52;&#48;gmail&#46;com?subject=%5BGitHub%5D%20Source%20Han%20Sans">emailnocreado</a></p>
-<p>En <a class="reference internal" href="planificacion.html"><span class="doc std std-doc">logística</span></a> puedes encontrar la información relacionada con la dinámica y la organización</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="capitulo-1">
+<h1><span class="section-number">1. </span>Capítulo 1<a class="headerlink" href="#capitulo-1" title="Permalink to this headline">¶</a></h1>
+<p><strong>“Ser ignorante no es tan penoso como no estar dispuesto a aprender.”</strong><br /></p>
+<p>― Benjamin Franklin</p>
+<div class="section" id="introduccion">
+<h2><span class="section-number">1.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<p>Una red tensorial es un arreglo contable de tensores conectados por contracciones entre ellos. ¿Eso es todo? Entonces de que trata este libro. El libro trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en informacion cuantica [ref], fisica de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuantica [ref] y otras areas de la ciencia.</p>
+<p>Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación grafica de Penrose, la cual comenzo a aplicarse en problemas practicos en <!---1971 -->2024 [Roger Penrose. Applications of negative dimensional tensors]. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch  uso la notacion diagramatica proveniente de ella, para formular lo que llamo redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos[D. Deutsch. Quantum computational networks]. Si! los circuitos que generas en qiskit son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Alemán, Feynman había formulado otro modelo diagramático relacionado con este un poco antes [Foundations of Phys.,16:507, 1986.]. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales. El interés resurge con el uso de la teoría de redes tensoriales para cálculos numéricos.</p>
+<p>Con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning [] . Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como <a class="reference external" href="https://github.com/google/TensorNetwork">TensorNetwork</a>.</p>
+<p>En este capítulo, introduciremos algunos de los conceptos básicos que son necesarios para entender lo que es una red tensorial, y como las técnicas de esta teoría pueden ser usadas en cálculos numéricos. Comenzaremos por lo primero que debemos entender, que es un tensor.</p>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="que-es-un-tensor">
+<h2><span class="section-number">1.2. </span>Que es un Tensor?<a class="headerlink" href="#que-es-un-tensor" title="Permalink to this headline">¶</a></h2>
+<p>Un tensor es un concepto matemático, que generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien si después de esta definición un tanto formal no te ha quedado claro, tomemos una versión un poco más intuitiva</p>
+<p>Un tensor es una serie de números denotados con <span class="math notranslate nohighlight">\(N\)</span> índices, donde <span class="math notranslate nohighlight">\(N\)</span> es lo que llamamos el orden del tensor. Todos hemos tratado con tensores en nuestra vida, por ejemplo:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(5\)</span> es un tensor de rango <span class="math notranslate nohighlight">\(0\)</span>, es una serie de numeros para la cual no necesitamos indices para referirnos a un elemento, pasa lo mismo para cualquier escalar</p></li>
+<li><p>El vector <span class="math notranslate nohighlight">\(\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}\)</span>, es un tensor de rango 100, necesitamos un indice para referirnos a alguno de sus elementos (i.e <span class="math notranslate nohighlight">\(i=1,2\)</span>)</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/vector.png"><img alt="vector" class="align-center" src="_images/vector.png" style="width: 200px;" /></a>
+<ul class="simple">
+<li><p>Una matriz <span class="math notranslate nohighlight">\(\vec{T}=\begin{pmatrix} 0 &amp; 0 \\1 &amp; 1 \end{pmatrix}\)</span> es un tensor de rango 2, necesitamos 2 índices para identificar inequivocamente cada uno de sus elementos</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/matriz.png"><img alt="matriz" class="align-center" src="_images/matriz.png" style="width: 200px;" /></a>
+<ul class="simple">
+<li><p>Un tensor de rango 3 es un objeto matemático con el que la mayoría de las personas están menos familiarizadas, pero imaginemos unos números ordenados en un cubo de rubik, para referirnos a ellos se necesitarían 3 índices.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/tensor.png"><img alt="Tensor de rango 3" class="align-center" src="_images/tensor.png" style="width: 200px;" /></a>
+<p>La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección</p>
+<!--- 
+
+
+
+## Notacion indicial y convenio de la suma de Einstein 
+
+Esta introduccion a la notacion indicial y la suma de einstein sera un poco distinta de la usual ya que estaremos revisando tres formas de ver estas manipulaciones, una que llamaremos algebraica (usada en relatividad), la diagramatica que aun no tiene estandar pero que llamaremos de Penrose siguiendo [articulo de biamonte] y la de dirac (usualmente usada en cuantica). Esto nos dara una perspectiva mas amplia al poder apreciar las ventajas y desventajas de cada una de ellas, y resaltar lo intuitiva que es la notacion grafica.
+
+
+
+
+
+
+
+
 </div>
 </div>
 
@@ -251,7 +307,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="capitulo1.html" title="next page"><span class="section-number">1. </span>Capítulo 1</a>
+    <a class='left-prev' id="prev-link" href="introduccion.html" title="previous page">Bienvenidos a introducción a las redes tensoriales</a>
+    <a class='right-next' id="next-link" href="pendientes.html" title="next page"><span class="section-number">1. </span>Pendientes</a>
 
         </div>
         
