@@ -2,7 +2,17 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: introduccion
-- file: bibliografia
-- file: conducta
-- file: estilo
-- file: planificacion
+  numbered: true
+
+- part: Preliminares
+  chapters:
+  - file: capitulo1
+
+- part: Info para el grupo 
+  chapters:
+  - file: pendientes
+  - file: planificacion
+  - file: conducta
+  - file: estilo
+  - file: bibliografia
+  

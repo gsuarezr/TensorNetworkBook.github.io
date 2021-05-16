@@ -1,19 +1,27 @@
 Bibliografía
 =======================
 
-[Material educativo compilado por tensornetwork.org](https://tensornetwork.org/reviews_resources.html)
+- [Material educativo compilado por tensornetwork.org](https://tensornetwork.org/reviews_resources.html)
 
-[El sitio web de Glen Evenbly](https://Tensors.net)
+- [El sitio web de Glen Evenbly](https://Tensors.net)
 
-[Este articulo de Jacob Biamonte mas enfocado en aplicaciones en la  cuántica](https://arxiv.org/abs/1912.10049)
+- [Este articulo de Jacob Biamonte mas enfocado en aplicaciones en la  cuántica](https://arxiv.org/abs/1912.10049)
 
-[Este libro de springer (esta algo pesado)](https://link.springer.com/chapter/10.1007/978-3-030-34489-4_2)
+- [Este libro de springer (esta algo pesado)](https://link.springer.com/chapter/10.1007/978-3-030-34489-4_2)
 
-[Este video introductorio](https://simons.berkeley.edu/talks/zeph-landau-2014-01-18)
+- [Introduction to Tensor Network Methods](https://springer.com/gp/book/9783030014087)
 
-[Minicurso del ICTP](https://www.youtube.com/watch?v=AmQNaYhhGss&t=8s)
+Videos:
+=======================
+- [Este video introductorio](https://simons.berkeley.edu/talks/zeph-landau-2014-01-18)
 
-[Introduction to Tensor Network Methods](https://springer.com/gp/book/9783030014087)
+- [Minicurso del ICTP](https://www.youtube.com/watch?v=AmQNaYhhGss&t=8s)
+
+- [Escuela 2017](http://scgp.stonybrook.edu/video_portal/results.php?event_id=218)
+
+- [Escuela 2016](https://www.youtube.com/watch?v=-HmHy4TZ_nU&list=PLQw2Rca500vKnwOpK5Z1VGQvisZgYQT7c)
+
+- [Introduccion por Michael Walter](https://www.youtube.com/watch?v=ivfuJ1JIET4&t=982s)
 
 Algunas tesis:
 =======================

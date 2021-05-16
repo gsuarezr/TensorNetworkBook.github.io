@@ -9,8 +9,7 @@ title                       : Introduccion a las Redes tensoriales  # The title 
 author                      : Comunidad sin nombre  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : logo.jpg  # A path to the book logo
-bibtex_bibfiles:
-    - references.bib
+
 
 repository:
   url                       : https://github.com/mcditoos/TensorNetworkBook.github.io
@@ -22,3 +21,14 @@ html:
   use_edit_page_button        : true
   use_repository_button       : true
   use_issue_button            : true
+
+  
+latex:
+  latex_documents:
+    targetname: book.tex
+  latex_engine: pdflatex 
+
+
+bibtex_bibfiles:
+    - zreferences.bib
+
