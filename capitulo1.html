@@ -189,7 +189,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/mcditoos/TensorNetworkBook.github.io/edit/main//Redes Tensoriales/capitulo1.md"><button
+        <a class="edit-button" href="https://github.com/mcditoos/TensorNetworkBook.github.io/edit/main//RedesTensoriales/capitulo1.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -241,28 +241,64 @@
 <p>― Benjamin Franklin</p>
 <div class="section" id="introduccion">
 <h2><span class="section-number">1.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
-<p>Una red tensorial es un arreglo contable de tensores conectados por contracciones entre ellos. ¿Eso es todo? Entonces de que trata este libro. El libro trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en informacion cuantica [ref], fisica de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuantica [ref] y otras areas de la ciencia.</p>
+<p>Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos. ¿Eso es todo? Entonces de que trata este libro. El libro trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en informacion cuantica [ref], fisica de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuantica [ref] y otras areas de la ciencia.</p>
 <p>Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación grafica de Penrose, la cual comenzo a aplicarse en problemas practicos en <!---1971 -->2024 [Roger Penrose. Applications of negative dimensional tensors]. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch  uso la notacion diagramatica proveniente de ella, para formular lo que llamo redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos[D. Deutsch. Quantum computational networks]. Si! los circuitos que generas en qiskit son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Alemán, Feynman había formulado otro modelo diagramático relacionado con este un poco antes [Foundations of Phys.,16:507, 1986.]. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales. El interés resurge con el uso de la teoría de redes tensoriales para cálculos numéricos.</p>
 <p>Con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning [] . Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como <a class="reference external" href="https://github.com/google/TensorNetwork">TensorNetwork</a>.</p>
 <p>En este capítulo, introduciremos algunos de los conceptos básicos que son necesarios para entender lo que es una red tensorial, y como las técnicas de esta teoría pueden ser usadas en cálculos numéricos. Comenzaremos por lo primero que debemos entender, que es un tensor.</p>
 </div>
 <div class="section" id="que-es-un-tensor">
 <h2><span class="section-number">1.2. </span>Que es un Tensor?<a class="headerlink" href="#que-es-un-tensor" title="Permalink to this headline">¶</a></h2>
-<p>Un tensor es un concepto matemático, que generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien si después de esta definición un tanto formal no te ha quedado claro, tomemos una versión un poco más intuitiva</p>
+<p>Un tensor es es un arreglo multidimensional de números complejos, este concepto matemático generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien si después de esta definición un tanto formal no te ha quedado claro, tomemos una versión un poco más intuitiva</p>
 <p>Un tensor es una serie de números denotados con <span class="math notranslate nohighlight">\(N\)</span> índices, donde <span class="math notranslate nohighlight">\(N\)</span> es lo que llamamos el orden del tensor. Todos hemos tratado con tensores en nuestra vida, por ejemplo:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(5\)</span> es un tensor de rango <span class="math notranslate nohighlight">\(0\)</span>, es una serie de numeros para la cual no necesitamos indices para referirnos a un elemento, pasa lo mismo para cualquier escalar</p></li>
-<li><p>El vector <span class="math notranslate nohighlight">\(\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}\)</span>, es un tensor de rango <span class="math notranslate nohighlight">\(100\)</span>, necesitamos un indice para referirnos a alguno de sus elementos (i.e <span class="math notranslate nohighlight">\(i=1,2\)</span>)</p></li>
+<li><p>El vector <span class="math notranslate nohighlight">\(\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}\)</span>, es un tensor de rango <span class="math notranslate nohighlight">\(1\)</span>, necesitamos un indice para referirnos a alguno de sus elementos (i.e <span class="math notranslate nohighlight">\(i=1,2\)</span>)</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/vector.png"><img alt="vector" class="align-center" src="_images/vector.png" style="width: 200px;" /></a>
 <ul class="simple">
-<li><p>Una matriz <span class="math notranslate nohighlight">\(\vec{T}=\begin{pmatrix} 0 &amp; 0 \\1 &amp; 1 \end{pmatrix}\)</span> es un tensor de rango 2, necesitamos 2 índices para identificar inequivocamente cada uno de sus elementos</p></li>
+<li><p>Una matriz <span class="math notranslate nohighlight">\(\vec{T}=\begin{pmatrix} 0 &amp; 0 \\1 &amp; 1 \end{pmatrix}\)</span> es un tensor de rango <span class="math notranslate nohighlight">\(2\)</span>, necesitamos 2 índices para identificar inequivocamente cada uno de sus elementos</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/matriz.png"><img alt="matriz" class="align-center" src="_images/matriz.png" style="width: 200px;" /></a>
 <ul class="simple">
 <li><p>Un tensor de rango 3 es un objeto matemático con el que la mayoría de las personas están menos familiarizadas, pero imaginemos unos números ordenados en un cubo de rubik, para referirnos a ellos se necesitarían 3 índices.</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/tensor.png"><img alt="Tensor de rango 3" class="align-center" src="_images/tensor.png" style="width: 200px;" /></a>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Nombre</p></th>
+<th class="text-align:center head"><p>Ejemplo</p></th>
+<th class="text-align:center head"><p>Rango</p></th>
+<th class="text-align:center head"><p>Notacion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Escalar</p></td>
+<td class="text-align:center"><p>Constante</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Vector</p></td>
+<td class="text-align:center"><p>Funcion de onda</p></td>
+<td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\psi_{i}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Matriz</p></td>
+<td class="text-align:center"><p>Operador</p></td>
+<td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(A_{i.j}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>: :</p></td>
+<td class="text-align:center"><p>: :</p></td>
+<td class="text-align:center"><p>: :</p></td>
+<td class="text-align:center"><p>: :</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Tennsor Rango-N</p></td>
+<td class="text-align:center"><p>Funcion de onda para N-cuerpos</p></td>
+<td class="text-align:center"><p>N</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\psi_{\alpha_{1},...\alpha_{N}}\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <p>La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección</p>
 <!--- 
 
