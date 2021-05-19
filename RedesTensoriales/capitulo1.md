@@ -15,7 +15,7 @@ Capítulo 1
 
 
 
-Una red tensorial es un arreglo contable de tensores conectados por contracciones entre ellos. ¿Eso es todo? Entonces de que trata este libro. El libro trata de lo que se suele llamar "métodos de redes tensoriales" que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en informacion cuantica [ref], fisica de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuantica [ref] y otras areas de la ciencia.
+Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos. ¿Eso es todo? Entonces de que trata este libro. El libro trata de lo que se suele llamar "métodos de redes tensoriales" que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en informacion cuantica [ref], fisica de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuantica [ref] y otras areas de la ciencia.
 
 
 
@@ -40,7 +40,7 @@ En este capítulo, introduciremos algunos de los conceptos básicos que son nece
 
 
 
-Un tensor es un concepto matemático, que generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien si después de esta definición un tanto formal no te ha quedado claro, tomemos una versión un poco más intuitiva 
+Un tensor es es un arreglo multidimensional de números complejos, este concepto matemático generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien si después de esta definición un tanto formal no te ha quedado claro, tomemos una versión un poco más intuitiva 
 
 
 
@@ -52,7 +52,7 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 
 
 
-* El vector $\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}$, es un tensor de rango $100$, necesitamos un indice para referirnos a alguno de sus elementos (i.e $i=1,2$)
+* El vector $\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}$, es un tensor de rango $1$, necesitamos un indice para referirnos a alguno de sus elementos (i.e $i=1,2$)
 
 
 
@@ -64,7 +64,7 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 
 
 
-* Una matriz $\vec{T}=\begin{pmatrix} 0 & 0 \\1 & 1 \end{pmatrix}$ es un tensor de rango 2, necesitamos 2 índices para identificar inequivocamente cada uno de sus elementos
+* Una matriz $\vec{T}=\begin{pmatrix} 0 & 0 \\1 & 1 \end{pmatrix}$ es un tensor de rango $2$, necesitamos 2 índices para identificar inequivocamente cada uno de sus elementos
 
 
 
@@ -86,6 +86,14 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 :align: center
 ```
 
+
+|      Nombre     |             Ejemplo             | Rango |              Notacion             |
+|:---------------:|:-------------------------------:|:-----:|:---------------------------------:|
+|     Escalar     |            Constante            |   0   |             $\lambda$             |
+|      Vector     |         Funcion de onda         |   1   |             $\psi_{i}$            |
+|      Matriz     |             Operador            |   2   |             $A_{i.j}$             |
+|       : :       |               : :               |  : :  |                : :                |
+| Tennsor Rango-N | Funcion de onda para N-cuerpos  |   N   | $\psi_{\alpha_{1},...\alpha_{N}}$ |
 
 
 
