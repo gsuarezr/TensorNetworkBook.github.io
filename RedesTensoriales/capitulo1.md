@@ -15,17 +15,17 @@ Capítulo 1
 
 
 
-Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos. ¿Eso es todo? Entonces de que trata este libro. El libro trata de lo que se suele llamar "métodos de redes tensoriales" que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en informacion cuantica [ref], fisica de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuantica [ref] y otras areas de la ciencia.
+Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos... ¿Eso es todo? Entonces, ¿de qué trata este libro? El libro trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en información cuántica [ref], física de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuántica [ref] y otras áreas de la ciencia.
 
 
 
-Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación grafica de Penrose, la cual comenzo a aplicarse en problemas practicos en <!---1971 -->2024 [Roger Penrose. Applications of negative dimensional tensors]. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch  uso la notacion diagramatica proveniente de ella, para formular lo que llamo redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos[D. Deutsch. Quantum computational networks]. Si! los circuitos que generas en qiskit son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Alemán, Feynman había formulado otro modelo diagramático relacionado con este un poco antes [Foundations of Phys.,16:507, 1986.]. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales. El interés resurge con el uso de la teoría de redes tensoriales para cálculos numéricos. 
+Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación gráfica de Penrose, la cual comenzó a aplicarse en problemas prácticos en 1971 [Roger Penrose. Applications of negative dimensional tensors]. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch uso la notación diagramática proveniente de ella, para formular lo que llamó redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos[D. Deutsch. Quantum computational networks]. ¡Así es! Los circuitos que generas en Qiskit son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Alemán, Feynman había formulado otro modelo diagramático relacionado con este un poco antes [Foundations of Phys.,16:507, 1986.]. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales.
 
 
 
 
 
-Con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning [] . Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como [TensorNetwork](https://github.com/google/TensorNetwork).
+El interés resurge gracias a el uso de la teoría de redes tensoriales para cálculos numéricos con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning [] . Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como [TensorNetwork](https://github.com/google/TensorNetwork).
 
 
 
@@ -36,11 +36,11 @@ En este capítulo, introduciremos algunos de los conceptos básicos que son nece
 
 
 
-## Que es un Tensor?
+## ¿Que es un Tensor?
 
 
 
-Un tensor es es un arreglo multidimensional de números complejos, este concepto matemático generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien si después de esta definición un tanto formal no te ha quedado claro, tomemos una versión un poco más intuitiva 
+Un tensor es un arreglo multidimensional de números complejos, este concepto matemático generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien, si después de esta definición un tanto formal no te ha quedado claro, intentemos con una versión un poco más intuitiva.
 
 
 
