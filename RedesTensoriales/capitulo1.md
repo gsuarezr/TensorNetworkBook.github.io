@@ -15,7 +15,7 @@ Capítulo 1
 
 
 
-Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos... ¿Eso es todo? Entonces, ¿de qué trata este libro? El libro trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en información cuántica [ref], física de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuántica [ref] y otras áreas de la ciencia.
+Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica...¿Eso es todo? Entonces, ¿de qué trata este libro? El libro trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en información cuántica [ref], física de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuántica [ref] y otras áreas de la ciencia.
 
 
 
