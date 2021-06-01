@@ -3,11 +3,13 @@ Capítulo 1
 
 
 
+
+```{epigraph}
 **"Ser ignorante no es tan penoso como no estar dispuesto a aprender."**<br />
 
-― Benjamin Franklin
+ -- Benjamin Franklin
 
-
+```
 
 
 
@@ -15,17 +17,11 @@ Capítulo 1
 
 
 
-Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, y no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica. Entonces... ¿de qué trata este libro? El escrito a continuación trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en información cuántica [ref], física de la materia condensada [ref], machine learning [ref], open quantum systems [ref], gravedad cuántica [ref] y muchas otras áreas de la ciencia.
+Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, y no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica. Entonces... ¿de qué trata este libro? El escrito a continuación trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en información cuántica {cite}`PhysRevLett.125.190402`, física de la materia condensada {cite}`1308.3318`, machine learning {cite}`NIPS2015_6855456e`, open quantum systems {cite}`PhysRevLett.121.227401`, gravedad cuántica {cite}`Chirco_2018` y muchas otras áreas de la ciencia.  
 
+Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación gráfica de Penrose, la cual comenzó a aplicarse en problemas prácticos en 1971 {cite}`penrose_1971`. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch uso la notación diagramática proveniente de ella, para formular lo que llamó redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos {cite}`D1989`. ¡Así es! Los circuitos que generas en [Qiskit](qiskit.org) son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Deustsch, Feynman había formulado otro modelo diagramático relacionado con este un poco antes {cite}`Feynman1986`. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales.
 
-
-Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación gráfica de Penrose, la cual comenzó a aplicarse en problemas prácticos en 1971 [Roger Penrose. Applications of negative dimensional tensors]. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch uso la notación diagramática proveniente de ella, para formular lo que llamó redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos[D. Deutsch. Quantum computational networks]. ¡Así es! Los circuitos que generas en Qiskit son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Alemán, Feynman había formulado otro modelo diagramático relacionado con este un poco antes [Foundations of Phys.,16:507, 1986.]. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales.
-
-
-
-
-
-El interés resurge gracias a el uso de la teoría de redes tensoriales para cálculos numéricos con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning [] . Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como [TensorNetwork](https://github.com/google/TensorNetwork).
+El interés resurge gracias a el uso de la teoría de redes tensoriales para cálculos numéricos con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning. Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como [TensorNetwork](https://github.com/google/TensorNetwork).
 
 
 
@@ -93,21 +89,27 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 |      Vector     |         Funcion de onda         |   1   |             $\psi_{i}$            |
 |      Matriz     |             Operador            |   2   |             $A_{i.j}$             |
 |       : :       |               : :               |  : :  |                : :                |
-| Tennsor Rango-N | Funcion de onda para N-cuerpos  |   N   | $\psi_{\alpha_{1},...\alpha_{N}}$ |
+| Tensor Rango-N  | Funcion de onda para N-cuerpos  |   N   | $\psi_{\alpha_{1},...\alpha_{N}}$ |
+
+
+
+
+
+
 
 
 
 
 La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección 
 
-## Representacion gráfica de redes tensoriales  
+### Representacion gráfica de redes tensoriales  
 
 Utilizamos una notación de diagramas para los tensores, donde cada tensor es dibujado como una figura sólida con un número de conexiones correspondientes a su orden. A continuación mostramos unos ejemplos:
 
 **El Vector** $A_{i}$ se representa como:
 
 ```{image} images/vector_tensor.png
-:alt: vector
+:alt: Un vector en su representación gráfica
 :width: 140px
 :align: center
 ```
@@ -115,7 +117,7 @@ Utilizamos una notación de diagramas para los tensores, donde cada tensor es di
 **La matriz** $B_{ij}$ se representa como:
 
 ```{image} images/matrix_tensor.png
-:alt: vector
+:alt: Una matríz en su representación gráfica
 :width: 140px
 :align: center
 ```
@@ -123,7 +125,7 @@ Utilizamos una notación de diagramas para los tensores, donde cada tensor es di
 **Un tensor de orden 3** $C_{ijk}$ se representa como:
 
 ```{image} images/tensor_orden_3.png
-:alt: vector
+:alt: Un tensor de orden 3 en su representación gráfica
 :width: 140px
 :align: center
 ```
@@ -136,7 +138,7 @@ $C_{ik} = \sum_{i}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
 
 
 ```{image} images/ejemplo1.png
-:alt: vector
+:alt: Representación gráfica de una contracción entre dos tensores 
 :width: 270px
 :align: center
 ```
@@ -145,7 +147,7 @@ Podemos ver el poder de la notación con diagramas de tensores en la contracció
 $D_{ijk} = \sum_{lmn}A_{ijm}B_{jkn}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
 
 ```{image} images/ejemplo2.png
-:alt: vector
+:alt: Representación gráfica de una contracción entre tres tensores
 :width: 270px
 :align: center
 ```
@@ -153,14 +155,14 @@ $D_{ijk} = \sum_{lmn}A_{ijm}B_{jkn}C_{nmk} $. En cambio la notacion con diagrama
 En muchas aplicaciones, la meta es aproximar un tensor de alto oden, como el siguiente:
 
 ```{image} images/tensor_N.png
-:alt: vector
+:alt: Tensor de orden N
 :width: 270px
 :align: center
 ```
 A un red tensorial compuesta de muchos tensores de bajo orden:
 
 ```{image} images/tensor_N_2.png
-:alt: vector
+:alt: Red tensorial de N tensores de bajo orden
 :width: 270px
 :align: center
 ```
@@ -176,7 +178,8 @@ La representación de redes tensoriales es muy útil por varias razones:
 La **teoría de redes tensoriales** se enfoca en entender como esta representación funciona y en que situaciones es más óptima utilizarla. En cambio, los **algoritmos de redes tensoriales** se enfocan en métodos para obtener , manipular y extraer información de estas representaciones.
 
 ## Redes tensoriales para sistemas cuánticos de muchos cuerpos
-
+```{bibliography}
+```
 <!--- 
 
 
@@ -188,15 +191,6 @@ Esta introduccion a la notacion indicial y la suma de einstein sera un poco dist
 
 
 
-
-\begin{tikzpicture} No funciona en jupyter books :(
-\node[draw, shape=circle] (v0) at (0,0) {$v_0$};
-\node[draw, shape=circle] (v1) at (1,0) {$v_1$};
-\node[rectangle,minimum width=6em,draw] (v3) at (0.5,-1) {$v_3$};
-\draw [thick] (v0) -- (v1)
- (v0) -- (v3)
- (v1) -- (v3);
-\end{tikzpicture}
 
 
 
