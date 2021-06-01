@@ -102,7 +102,11 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 
 La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección 
 
+<<<<<<< HEAD
 ### Representacion gráfica de redes tensoriales  
+=======
+## Representación gráfica de redes tensoriales  
+>>>>>>> ab3240fc3d5a0e570b63d074e8d67108b12d434e
 
 Utilizamos una notación de diagramas para los tensores, donde cada tensor es dibujado como una figura sólida con un número de conexiones correspondientes a su orden. A continuación mostramos unos ejemplos:
 
@@ -152,7 +156,7 @@ $D_{ijk} = \sum_{lmn}A_{ijm}B_{jkn}C_{nmk} $. En cambio la notacion con diagrama
 :align: center
 ```
 
-En muchas aplicaciones, la meta es aproximar un tensor de alto oden, como el siguiente:
+En muchas aplicaciones, la meta es aproximar un tensor de alto orden, como el siguiente:
 
 ```{image} images/tensor_N.png
 :alt: Tensor de orden N
