@@ -100,14 +100,14 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 
 La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección 
 
-## Representacion gráfica de redes tensoriales  
+## Representación gráfica de redes tensoriales  
 
 Utilizamos una notación de diagramas para los tensores, donde cada tensor es dibujado como una figura sólida con un número de conexiones correspondientes a su orden. A continuación mostramos unos ejemplos:
 
 **El Vector** $A_{i}$ se representa como:
 
 ```{image} images/vector_tensor.png
-:alt: vector
+:alt: Un vector en su representación gráfica
 :width: 140px
 :align: center
 ```
@@ -115,7 +115,7 @@ Utilizamos una notación de diagramas para los tensores, donde cada tensor es di
 **La matriz** $B_{ij}$ se representa como:
 
 ```{image} images/matrix_tensor.png
-:alt: vector
+:alt: Una matríz en su representación gráfica
 :width: 140px
 :align: center
 ```
@@ -123,7 +123,7 @@ Utilizamos una notación de diagramas para los tensores, donde cada tensor es di
 **Un tensor de orden 3** $C_{ijk}$ se representa como:
 
 ```{image} images/tensor_orden_3.png
-:alt: vector
+:alt: Un tensor de orden 3 en su representación gráfica
 :width: 140px
 :align: center
 ```
@@ -136,7 +136,7 @@ $C_{ik} = \sum_{i}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
 
 
 ```{image} images/ejemplo1.png
-:alt: vector
+:alt: Representación gráfica de una contracción entre dos tensores 
 :width: 270px
 :align: center
 ```
@@ -145,22 +145,22 @@ Podemos ver el poder de la notación con diagramas de tensores en la contracció
 $D_{ijk} = \sum_{lmn}A_{ijm}B_{jkn}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
 
 ```{image} images/ejemplo2.png
-:alt: vector
+:alt: Representación gráfica de una contracción entre tres tensores
 :width: 270px
 :align: center
 ```
 
-En muchas aplicaciones, la meta es aproximar un tensor de alto oden, como el siguiente:
+En muchas aplicaciones, la meta es aproximar un tensor de alto orden, como el siguiente:
 
 ```{image} images/tensor_N.png
-:alt: vector
+:alt: Tensor de orden N
 :width: 270px
 :align: center
 ```
 A un red tensorial compuesta de muchos tensores de bajo orden:
 
 ```{image} images/tensor_N_2.png
-:alt: vector
+:alt: Red tensorial de N tensores de bajo orden
 :width: 270px
 :align: center
 ```
