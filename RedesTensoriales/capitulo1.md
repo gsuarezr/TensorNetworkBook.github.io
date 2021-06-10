@@ -133,13 +133,18 @@ Utilizamos una notación de diagramas para los tensores, donde cada tensor es di
 
 Podemos formar redes de múltiples tensores donde un índice compartido por dos tensores denota una suma o contracción sobre el índice.
 
+```{image} images/contraccion.png
+:alt: Representación gráfica de una contracción entre dos tensores 
+:width: 270px
+:align: center
+```
 
 La multiplicación de dos matrices $A$ y $B$ se puede detonar en forma de suma como:
 $C_{ik} = \sum_{j}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
 
 
 ```{image} images/ejemplo1.png
-:alt: Representación gráfica de una contracción entre dos tensores 
+:alt: Representación gráfica de una contracción entre dos tensores, denotando una multiplicación de matrices 
 :width: 270px
 :align: center
 ```
