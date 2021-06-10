@@ -135,7 +135,7 @@ Podemos formar redes de múltiples tensores donde un índice compartido por dos 
 
 
 La multiplicación de dos matrices $A$ y $B$ se puede detonar en forma de suma como:
-$C_{ik} = \sum_{i}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
+$C_{ik} = \sum_{j}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
 
 
 ```{image} images/ejemplo1.png
@@ -145,7 +145,7 @@ $C_{ik} = \sum_{i}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
 ```
 
 Podemos ver el poder de la notación con diagramas de tensores en la contracción de 3 tensores, donde en notación de sumatoria se expresa como: 
-$D_{ijk} = \sum_{lmn}A_{ijm}B_{jkn}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
+$D_{ijk} = \sum_{lmn}A_{ljm}B_{iln}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
 
 ```{image} images/ejemplo2.png
 :alt: Representación gráfica de una contracción entre tres tensores
