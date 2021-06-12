@@ -15,16 +15,13 @@ Capítulo 1
 
 ## Introducción
 
-
-
-Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, y no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica. Entonces... ¿de qué trata este libro? El escrito a continuación trata de lo que se suele llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos son usados en información cuántica {cite}`PhysRevLett.125.190402`, física de la materia condensada {cite}`1308.3318`, machine learning {cite}`NIPS2015_6855456e`, open quantum systems {cite}`PhysRevLett.121.227401`, gravedad cuántica {cite}`Chirco_2018` y muchas otras áreas de la ciencia.  
+  
 
 Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación gráfica de Penrose, la cual comenzó a aplicarse en problemas prácticos en 1971 {cite}`penrose_1971`. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch uso la notación diagramática proveniente de ella, para formular lo que llamó redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos {cite}`D1989`. ¡Así es! Los circuitos que generas en [Qiskit](qiskit.org) son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Deustsch, Feynman había formulado otro modelo diagramático relacionado con este un poco antes {cite}`Feynman1986`. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales.
 
-El interés resurge gracias a el uso de la teoría de redes tensoriales para cálculos numéricos con el nacimiento de algoritmos como MPS, TT , TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo estas técnicas numéricas también han encontrado aplicaciones en machine learning. Esto  debido a que al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como [TensorNetwork](https://github.com/google/TensorNetwork).
+El interés resurge gracias al uso de la teoría de redes tensoriales para cálculos numéricos con el nacimiento de algoritmos como MPS, TT, TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo, estas técnicas numéricas también han encontrado aplicaciones en machine learning, debido a que, al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como [TensorNetwork](https://github.com/google/TensorNetwork).
 
-
-
+Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, y no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica. Entonces... ¿de qué trata este libro? El escrito a continuación trata de lo que se suelen llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos además de ser usados en las areas ya mencionadas de física de la materia condensada {cite}`1308.3318` y machine learning {cite}`NIPS2015_6855456e`, también están presentes en información cuántica {cite}`PhysRevLett.125.190402`, open quantum systems {cite}`PhysRevLett.121.227401`, gravedad cuántica {cite}`Chirco_2018` y muchas otras áreas de la ciencia.
 
 En este capítulo, introduciremos algunos de los conceptos básicos que son necesarios para entender lo que es una red tensorial, y como las técnicas de esta teoría pueden ser usadas en cálculos numéricos. Comenzaremos por lo primero que debemos entender, que es un tensor. 
 
@@ -136,19 +133,47 @@ Utilizamos una notación de diagramas para los tensores, donde cada tensor es di
 
 Podemos formar redes de múltiples tensores donde un índice compartido por dos tensores denota una suma o contracción sobre el índice.
 
-
-La multiplicación de dos matrices $A$ y $B$ se puede detonar en forma de suma como:
-$C_{ik} = \sum_{i}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
-
-
-```{image} images/ejemplo1.png
+```{image} images/contraccion.png
 :alt: Representación gráfica de una contracción entre dos tensores 
 :width: 270px
 :align: center
 ```
 
+La multiplicación de dos matrices $A$ y $B$ se puede detonar en forma de suma como:
+$C_{ik} = \sum_{j}A_{ij}B_{jk} $. Su equivalente en diagramas de tensores es:
+
+
+```{image} images/ejemplo1.png
+:alt: Representación gráfica de una contracción entre dos tensores, denotando una multiplicación de matrices 
+:width: 270px
+:align: center
+```
+De similar manera, podemos pensar en cómo representar otras operaciones comunes con matrices, como el producto interno. Si ahora consideramos dos vectores $A$ y $B$, su producto interno $\sum_{i}A_{i}\cdot B_{i}$ va a tener un equivalente en diagramas de tensores de forma:
+
+```{image} images/prod_interno1.png
+:alt: Representación gráfica de un producto interno con vectores
+:width: 270px
+:align: center
+```
+
+Con dos tensores $D$ y $E$ de rango 4 por ejemplo su producto interno $\sum_{ijkl}D_{ijkl}\cdot E_{ijkl}$ es equivalente al diagrama:
+
+```{image} images/prod_interno2.png
+:alt: Representación gráfica de un producto interno con tensores rango-4
+:width: 270px
+:align: center
+```
+
+Finalmente, también podemos representar la traza de un arreglo. Considerando una matriz $A$, su traza $\sum_{i}A_{ii}$ tiene un diagrama equivalente con la forma:
+
+```{image} images/traza.png
+:alt: Representación gráfica de la traza de una matriz
+:width: 270px
+:align: center
+```
+
 Podemos ver el poder de la notación con diagramas de tensores en la contracción de 3 tensores, donde en notación de sumatoria se expresa como: 
-$D_{ijk} = \sum_{lmn}A_{ijm}B_{jkn}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
+$D_{ijk} = \sum_{lmn}A_{ljm}B_{iln}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
 
 ```{image} images/ejemplo2.png
 :alt: Representación gráfica de una contracción entre tres tensores
