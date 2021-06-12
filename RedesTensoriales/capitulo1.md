@@ -140,11 +140,34 @@ Podemos formar redes de múltiples tensores donde un índice compartido por dos 
 ```
 
 La multiplicación de dos matrices $A$ y $B$ se puede detonar en forma de suma como:
-$C_{ik} = \sum_{j}A_{ij}B_{jk} $.Su equivalente en diagramas de tensores es:
+$C_{ik} = \sum_{j}A_{ij}B_{jk} $. Su equivalente en diagramas de tensores es:
 
 
 ```{image} images/ejemplo1.png
 :alt: Representación gráfica de una contracción entre dos tensores, denotando una multiplicación de matrices 
+:width: 270px
+:align: center
+```
+De similar manera, podemos pensar en cómo representar otras operaciones comunes con matrices, como el producto interno. Si ahora consideramos dos vectores $A$ y $B$, su producto interno $\sum_{i}A_{i}\cdot B_{i}$ va a tener un equivalente en diagramas de tensores de forma:
+
+```{image} images/prod_interno1.png
+:alt: Representación gráfica de un producto interno con vectores
+:width: 270px
+:align: center
+```
+
+Con dos tensores $D$ y $E$ de rango 4 por ejemplo su producto interno $\sum_{ijkl}D_{ijkl}\cdot E_{ijkl}$ es equivalente al diagrama:
+
+```{image} images/prod_interno2.png
+:alt: Representación gráfica de un producto interno con tensores rango-4
+:width: 270px
+:align: center
+```
+
+Finalmente, también podemos representar la traza de un arreglo. Considerando una matriz $A$, su traza $\sum_{i}A_{ii}$ tiene un diagrama equivalente con la forma:
+
+```{image} images/traza.png
+:alt: Representación gráfica de la traza de una matriz
 :width: 270px
 :align: center
 ```
