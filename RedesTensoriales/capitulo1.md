@@ -207,6 +207,30 @@ La representación de redes tensoriales es muy útil por varias razones:
 La **teoría de redes tensoriales** se enfoca en entender como esta representación funciona y en que situaciones es más óptima utilizarla. En cambio, los **algoritmos de redes tensoriales** se enfocan en métodos para obtener , manipular y extraer información de estas representaciones.
 
 ## Redes tensoriales para sistemas cuánticos de muchos cuerpos
+
+### Redes Tensoriales MPS
+
+También conocidas como Tensor Train (TT), las redes tensoriales **Matrix Product State** son una manera de representar un tensor de rango-$N$ como una cadena de tensores de rango-$3$. Esta representación es el objetivo de muchos algoritmos debido a que provee una buena aproximación de las redes tensoriales y es más eficiente computacionalmente.
+
+```{image} images/MPS.png
+:alt: Ejecución de MPS como un recorte del Tensor objetivo en tensores más pequeños
+:width: 470px
+:align: center
+```
+
+Viendo está imagen puede ser difícil imaginarnos de donde viene dicha eficiencia, pero vayamos más a fondo. Recordemos que el estado cuántico $|\psi\rangle=\sum_{ij\dots k}\psi_{ij\dots k}|u_{ij\dots k}\rangle$ requiere de $2^n$ coeficientes independientes para ser descrito completamente, es decir, crece exponencialmente con el tamaño de n. Con MPS queremos poder describir al estado cómo:
+
+$$|\psi\rangle = \sum_{ij\dots k}Tr(A_{i}^{[1]}A_{j}^{[2]}\dots A_{k}^{[n]})|u_{ijkl}\rangle$$
+
+De esta manera los recursos necesarios para describirlo solo crecen linealmente con un factor de escalamiento de $nd\chi^{2}$ donde $d$ es la dimensión del subsistema y $\chi$ por $\chi$ es el limite superior de las matrices. Podemos observar en esta ecuación que conocer los componentes de $\psi$ solo es cosa de calcular el producto entre las matrices. Es de aquí de donde viene el nombre del método.
+
+La capacidad de MPS de reducir los recursos viene de una herramienta llamada **Singular Value Decomposition** que se aplica de manera recursiva al tensor inicial $T$ para obtener las matrices que cumplen $T=U\Sigma V$, donde $U$ y $V$ son unitarios y $\Sigma$ es real, diagonal y no-negativa. 
+
+Si volvemos al ejemplo de la imagen, podemos notar que los tensores de los extremos solo tienen dos conexiones, por lo que el producto va a dar como resultado un escalar entonces la traza no es necesaria. Y su ecuación tendria la forma:
+$$|\psi\rangle = \sum_{ijkl}A_{i}^{[1]}A_{j}^{[2]}A_{k}^{[3]}A_{l}^{[4]}|u_{ij\dots k}\rangle$$
+
+
+
 ```{bibliography}
 ```
 <!--- 
