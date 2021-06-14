@@ -5,6 +5,8 @@ Bibliografía
 
 - [El sitio web de Glen Evenbly](https://Tensors.net)
 
+- [Artículo de Jacob Biamonte y Ville Bergholm de introducción](https://arxiv.org/abs/1708.00006)
+
 - [Este articulo de Jacob Biamonte mas enfocado en aplicaciones en la  cuántica](https://arxiv.org/abs/1912.10049)
 
 - [Este libro de springer (esta algo pesado)](https://link.springer.com/chapter/10.1007/978-3-030-34489-4_2)
