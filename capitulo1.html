@@ -232,18 +232,13 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   1.3. Representación gráfica de redes tensoriales
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#redes-tensoriales-para-sistemas-cuanticos-de-muchos-cuerpos">
-   1.4. Redes tensoriales para sistemas cuánticos de muchos cuerpos
+   1.3. Redes tensoriales para sistemas cuánticos de muchos cuerpos
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#redes-tensoriales-mps">
-     1.4.1. Redes Tensoriales MPS
+     1.3.1. Redes Tensoriales MPS
     </a>
    </li>
   </ul>
@@ -267,9 +262,9 @@
 </div></blockquote>
 <div class="section" id="introduccion">
 <h2><span class="section-number">1.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
-<p>Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación gráfica de Penrose, la cual comenzó a aplicarse en problemas prácticos en 1971 <span id="id1">[<a class="reference internal" href="#id11"><span>Pen71</span></a>]</span>. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch uso la notación diagramática proveniente de ella, para formular lo que llamó redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos <span id="id2">[<a class="reference internal" href="#id18"><span>Deu89</span></a>]</span>. ¡Así es! Los circuitos que generas en <span class="xref myst">Qiskit</span> son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Deustsch, Feynman había formulado otro modelo diagramático relacionado con este un poco antes <span id="id3">[<a class="reference internal" href="#id17"><span>Fey86</span></a>]</span>. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales.</p>
+<p>Las redes tensoriales son un concepto relativamente joven que tiene su origen en la notación gráfica de Penrose, la cual comenzó a aplicarse en problemas prácticos en 1971 <span id="id1">[<a class="reference internal" href="#id10"><span>Pen71</span></a>]</span>. Sin embargo, permaneció fuera de los temas populares en ciencia hasta que Deutsch uso la notación diagramática proveniente de ella, para formular lo que llamó redes computacionales cuánticas que se conocen hoy en día como circuitos cuánticos <span id="id2">[<a class="reference internal" href="#id17"><span>Deu89</span></a>]</span>. ¡Así es! Los circuitos que generas en <span class="xref myst">Qiskit</span> son un caso especial de redes tensoriales. Un dato curioso es que mientras que el modelo que se popularizó es el de Deustsch, Feynman había formulado otro modelo diagramático relacionado con este un poco antes <span id="id3">[<a class="reference internal" href="#id16"><span>Fey86</span></a>]</span>. Sin embargo, incluso después de ello no se habló mucho de redes tensoriales.</p>
 <p>El interés resurge gracias al uso de la teoría de redes tensoriales para cálculos numéricos con el nacimiento de algoritmos como MPS, TT, TTN, MERA y PEPS. Varios de ellos tienen su origen en materia condensada y se pensaron para resolver problemas en mecánica cuántica, un poco inspirados en el grupo de renormalización de la matriz densidad. Sin embargo, estas técnicas numéricas también han encontrado aplicaciones en machine learning, debido a que, al igual que en materia condensada,  los problemas numéricos son de alta dimensión, incluso llevando a empresas como Google a invertir en la investigación de estos temas y el desarrollo de librerías para el cálculo numérico de estas técnicas como <a class="reference external" href="https://github.com/google/TensorNetwork">TensorNetwork</a>.</p>
-<p>Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, y no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica. Entonces… ¿de qué trata este libro? El escrito a continuación trata de lo que se suelen llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos además de ser usados en las areas ya mencionadas de física de la materia condensada <span id="id4">[<a class="reference internal" href="#id15"><span>Eis13</span></a>]</span> y machine learning <span id="id5">[<a class="reference internal" href="#id12"><span>NPOV15</span></a>]</span>, también están presentes en información cuántica <span id="id6">[<a class="reference internal" href="#id16"><span>PC20</span></a>]</span>, open quantum systems <span id="id7">[<a class="reference internal" href="#id14"><span>dPSchroderC+18</span></a>]</span>, gravedad cuántica <span id="id8">[<a class="reference internal" href="#id13"><span>COZ18</span></a>]</span> y muchas otras áreas de la ciencia.</p>
+<p>Una red tensorial es un arreglo contable de tensores conectados por contracciones (suma de índices) entre ellos, y no solo han ayudado en la comprensión teórica de las funciones de onda cuántica, sino que también forman la base de muchos potentes enfoques de simulación numérica. Entonces… ¿de qué trata este libro? El escrito a continuación trata de lo que se suelen llamar “métodos de redes tensoriales” que es el conjunto de herramientas asociadas al cálculo y simplificación de redes tensoriales. Estos métodos además de ser usados en las areas ya mencionadas de física de la materia condensada <span id="id4">[<a class="reference internal" href="#id14"><span>Eis13</span></a>]</span> y machine learning <span id="id5">[<a class="reference internal" href="#id11"><span>NPOV15</span></a>]</span>, también están presentes en información cuántica <span id="id6">[<a class="reference internal" href="#id15"><span>PC20</span></a>]</span>, open quantum systems <span id="id7">[<a class="reference internal" href="#id13"><span>dPSchroderC+18</span></a>]</span>, gravedad cuántica <span id="id8">[<a class="reference internal" href="#id12"><span>COZ18</span></a>]</span> y muchas otras áreas de la ciencia.</p>
 <p>En este capítulo, introduciremos algunos de los conceptos básicos que son necesarios para entender lo que es una red tensorial, y como las técnicas de esta teoría pueden ser usadas en cálculos numéricos. Comenzaremos por lo primero que debemos entender, que es un tensor.</p>
 </div>
 <div class="section" id="que-es-un-tensor">
@@ -326,29 +321,8 @@
 </tbody>
 </table>
 <p>La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <div class="section" id="representacion-grafica-de-redes-tensoriales">
 <h3><span class="section-number">1.2.1. </span>Representacion gráfica de redes tensoriales<a class="headerlink" href="#representacion-grafica-de-redes-tensoriales" title="Permalink to this headline">¶</a></h3>
-<p>=======</p>
-</div>
-</div>
-<div class="section" id="id9">
-<h2><span class="section-number">1.3. </span>Representación gráfica de redes tensoriales<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><p>ab3240fc3d5a0e570b63d074e8d67108b12d434e</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
 <p>Utilizamos una notación de diagramas para los tensores, donde cada tensor es dibujado como una figura sólida con un número de conexiones correspondientes a su orden. A continuación mostramos unos ejemplos:</p>
 <p><strong>El Vector</strong> <span class="math notranslate nohighlight">\(A_{i}\)</span> se representa como:</p>
 <a class="reference internal image-reference" href="_images/vector_tensor.png"><img alt="Un vector en su representación gráfica" class="align-center" src="_images/vector_tensor.png" style="width: 140px;" /></a>
@@ -383,10 +357,11 @@
 </ol>
 <p>La <strong>teoría de redes tensoriales</strong> se enfoca en entender como esta representación funciona y en que situaciones es más óptima utilizarla. En cambio, los <strong>algoritmos de redes tensoriales</strong> se enfocan en métodos para obtener , manipular y extraer información de estas representaciones.</p>
 </div>
+</div>
 <div class="section" id="redes-tensoriales-para-sistemas-cuanticos-de-muchos-cuerpos">
-<h2><span class="section-number">1.4. </span>Redes tensoriales para sistemas cuánticos de muchos cuerpos<a class="headerlink" href="#redes-tensoriales-para-sistemas-cuanticos-de-muchos-cuerpos" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Redes tensoriales para sistemas cuánticos de muchos cuerpos<a class="headerlink" href="#redes-tensoriales-para-sistemas-cuanticos-de-muchos-cuerpos" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="redes-tensoriales-mps">
-<h3><span class="section-number">1.4.1. </span>Redes Tensoriales MPS<a class="headerlink" href="#redes-tensoriales-mps" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>Redes Tensoriales MPS<a class="headerlink" href="#redes-tensoriales-mps" title="Permalink to this headline">¶</a></h3>
 <p>También conocidas como Tensor Train (TT), las redes tensoriales <strong>Matrix Product State</strong> son una manera de representar un tensor de rango-<span class="math notranslate nohighlight">\(N\)</span> como una cadena de tensores de rango-<span class="math notranslate nohighlight">\(3\)</span>. Esta representación es el objetivo de muchos algoritmos debido a que provee una buena aproximación de las redes tensoriales y es más eficiente computacionalmente.</p>
 <a class="reference internal image-reference" href="_images/MPS.png"><img alt="Ejecución de MPS como un recorte del Tensor objetivo en tensores más pequeños" class="align-center" src="_images/MPS.png" style="width: 470px;" /></a>
 <p>Viendo está imagen puede ser difícil imaginarnos de donde viene dicha eficiencia, pero vayamos más a fondo. Recordemos que el estado cuántico <span class="math notranslate nohighlight">\(|\psi\rangle=\sum_{ij\dots k}\psi_{ij\dots k}|u_{ij\dots k}\rangle\)</span> requiere de <span class="math notranslate nohighlight">\(2^n\)</span> coeficientes independientes para ser descrito completamente, es decir, crece exponencialmente con el tamaño de n. Con MPS queremos poder describir al estado cómo:</p>
@@ -396,29 +371,29 @@
 <p>La capacidad de MPS de reducir los recursos viene de una herramienta llamada <strong>Singular Value Decomposition</strong> que se aplica de manera recursiva al tensor inicial <span class="math notranslate nohighlight">\(T\)</span> para obtener las matrices que cumplen <span class="math notranslate nohighlight">\(T=U\Sigma V\)</span>, donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son unitarios y <span class="math notranslate nohighlight">\(\Sigma\)</span> es real, diagonal y no-negativa.</p>
 <p>Si volvemos al ejemplo de la imagen, podemos notar que los tensores de los extremos solo tienen dos conexiones, por lo que el producto va a dar como resultado un escalar entonces la traza no es necesaria. Y su ecuación tendria la forma:
 $<span class="math notranslate nohighlight">\(|\psi\rangle = \sum_{ijkl}A_{i}^{[1]}A_{j}^{[2]}A_{k}^{[3]}A_{l}^{[4]}|u_{ij\dots k}\rangle\)</span>$</p>
-<p id="id10"><dl class="citation">
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id8">COZ18</a></span></dt>
+<p id="id9"><dl class="citation">
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id8">COZ18</a></span></dt>
 <dd><p>Goffredo Chirco, Daniele Oriti, and Mingyi Zhang. Group field theory and tensor networks: towards a ryu–takayanagi formula in full quantum gravity. <em>Classical and Quantum Gravity</em>, 35(11):115011, may 2018. URL: <a class="reference external" href="https://doi.org/10.1088/1361-6382/aabf55">https://doi.org/10.1088/1361-6382/aabf55</a>, <a class="reference external" href="https://doi.org/10.1088/1361-6382/aabf55">doi:10.1088/1361-6382/aabf55</a>.</p>
 </dd>
-<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">dPSchroderC+18</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id7">dPSchroderC+18</a></span></dt>
 <dd><p>Javier del Pino, Florian A. Y. N. Schröder, Alex W. Chin, Johannes Feist, and Francisco J. Garcia-Vidal. Tensor network simulation of non-markovian dynamics in organic polaritons. <em>Phys. Rev. Lett.</em>, 121:227401, Nov 2018. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.121.227401">https://link.aps.org/doi/10.1103/PhysRevLett.121.227401</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.121.227401">doi:10.1103/PhysRevLett.121.227401</a>.</p>
 </dd>
-<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id2">Deu89</a></span></dt>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id2">Deu89</a></span></dt>
 <dd><p>David Elieser Deutsch. Quantum computational networks. <em>Proceedings of the Royal Society of London. A. Mathematical and Physical Sciences</em>, 425(1868):73–90, September 1989. URL: <a class="reference external" href="https://doi.org/10.1098/rspa.1989.0099">https://doi.org/10.1098/rspa.1989.0099</a>, <a class="reference external" href="https://doi.org/10.1098/rspa.1989.0099">doi:10.1098/rspa.1989.0099</a>.</p>
 </dd>
-<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id4">Eis13</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id4">Eis13</a></span></dt>
 <dd><p>J. Eisert. Entanglement and tensor network states. <em>Modeling and Simulation 3, 520 (2013)</em>, 2013. <a class="reference external" href="https://arxiv.org/abs/arXiv:1308.3318">arXiv:arXiv:1308.3318</a>.</p>
 </dd>
-<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id3">Fey86</a></span></dt>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id3">Fey86</a></span></dt>
 <dd><p>Richard Feynman. Quantum mechanical computers. <em>Foundations of Physics</em>, 16(6):507–531, June 1986. URL: <a class="reference external" href="https://doi.org/10.1007/bf01886518">https://doi.org/10.1007/bf01886518</a>, <a class="reference external" href="https://doi.org/10.1007/bf01886518">doi:10.1007/bf01886518</a>.</p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">NPOV15</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id5">NPOV15</a></span></dt>
 <dd><p>Alexander Novikov, Dmitrii Podoprikhin, Anton Osokin, and Dmitry P Vetrov. Tensorizing neural networks. In C. Cortes, N. Lawrence, D. Lee, M. Sugiyama, and R. Garnett, editors, <em>Advances in Neural Information Processing Systems</em>, volume 28. Curran Associates, Inc., 2015. URL: <a class="reference external" href="https://proceedings.neurips.cc/paper/2015/file/6855456e2fe46a9d49d3d3af4f57443d-Paper.pdf">https://proceedings.neurips.cc/paper/2015/file/6855456e2fe46a9d49d3d3af4f57443d-Paper.pdf</a>.</p>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">Pen71</a></span></dt>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id1">Pen71</a></span></dt>
 <dd><p>Roger Penrose. Applications of negative dimensional tensors. <em>Academic Press</em>, 1971.</p>
 </dd>
-<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id6">PC20</a></span></dt>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id6">PC20</a></span></dt>
 <dd><p>Lorenzo Piroli and J. Ignacio Cirac. Quantum cellular automata, tensor networks, and area laws. <em>Phys. Rev. Lett.</em>, 125:190402, Nov 2020. URL: <a class="reference external" href="https://link.aps.org/doi/10.1103/PhysRevLett.125.190402">https://link.aps.org/doi/10.1103/PhysRevLett.125.190402</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.125.190402">doi:10.1103/PhysRevLett.125.190402</a>.</p>
 </dd>
 </dl>
