@@ -189,30 +189,28 @@ The graphic representation of tensor networks is useful for many reasons:
 
 **Tensor network theory** is focused on trying to understand how this representation works and in which situations it is optimal to use it. On the other hand, **tensor network algorithms** are focused on finding methods to obtain, manipulate, and extract information from these representations. 
 
-## Redes tensoriales para sistemas cuánticos de muchos cuerpos
+## Tensor networks for many body quantum  systems
 
-### Redes Tensoriales MPS
+### MPS Tensor Networks
 
-También conocidas como Tensor Train (TT), las redes tensoriales **Matrix Product State** son una manera de representar un tensor de rango-$N$ como una cadena de tensores de rango-$3$. Esta representación es el objetivo de muchos algoritmos debido a que provee una buena aproximación de las redes tensoriales y es más eficiente computacionalmente.
+Also known as Tensor Train (TT), **Matrix Product State** tensor networks are a way to represent a tensor of order $N$ as a chain of tensors of order $3$. This representation is the objective of many algorithms due to it providing a good approximation of the tensor networks and their higher computational efficiency.
 
 ```{image} images/MPS.png
-:alt: Ejecución de MPS como un recorte del Tensor objetivo en tensores más pequeños
+:alt: Execution of MPS as a "cut" of the target tensor into smaller tensors.
 :width: 470px
 :align: center
 ```
 
-Viendo está imagen puede ser difícil imaginarnos de donde viene dicha eficiencia, pero vayamos más a fondo. Recordemos que el estado cuántico $|\psi\rangle=\sum_{ij\dots k}\psi_{ij\dots k}|u_{ij\dots k}\rangle$ requiere de $2^n$ coeficientes independientes para ser descrito completamente, es decir, crece exponencialmente con el tamaño de n. Con MPS queremos poder describir al estado cómo:
+Just by observing this image it may be difficult to imagine where such efficency comes from, but lets dive in to find out. Recall that the quantum state $|\psi\rangle=\sum_{ij\dots k}\psi_{ij\dots k}|u_{ij\dots k}\rangle$ requires $2^n$ independent coeficients to be correctly described, i.e. it grows exponentially with the size of n. With MPS we can describe such state as:
 
-$$|\psi\rangle = \sum_{ij\dots k}Tr(A_{i}^{[1]}A_{j}^{[2]}\dots A_{k}^{[n]})|u_{ijkl}\rangle$$
+$|\psi\rangle = \sum_{ij\dots k}Tr(A_{i}^{[1]}A_{j}^{[2]}\dots A_{k}^{[n]})|u_{ijkl}\rangle$
 
-De esta manera los recursos necesarios para describirlo solo crecen linealmente con un factor de escalamiento de $nd\chi^{2}$ donde $d$ es la dimensión del subsistema y $\chi$ por $\chi$ es el limite superior de las matrices. Podemos observar en esta ecuación que conocer los componentes de $\psi$ solo es cosa de calcular el producto entre las matrices. Es de aquí de donde viene el nombre del método.
+In this way, the resources required to describe it only grow linearly with a scaling factor $nd\chi^{2}$ where $d$ is the dimension of the subsystem and $\chi$ times $\chi$ is the upper limit of the matrices. We can observe in this equation that obtaining the $\psi$ components is just a matter of calculating the product between the matrices. This is where the name of the method comes from.
 
-La capacidad de MPS de reducir los recursos viene de una herramienta llamada **Singular Value Decomposition** que se aplica de manera recursiva al tensor inicial $T$ para obtener las matrices que cumplen $T=U\Sigma V$, donde $U$ y $V$ son unitarios y $\Sigma$ es real, diagonal y no-negativa. 
+The capabilities of MPS to lower the resources needed comes from a tool called **Singular Value Decomposition** that is applied recursively to the initial tensor $T$ to obtain the matrices that satisfy the condition $T=U\Sigma V$, where $U$ and $V$ are unitaries and $\Sigma$ is real, non-diagonal and non-negative.
 
-Si volvemos al ejemplo de la imagen, podemos notar que los tensores de los extremos solo tienen dos conexiones, por lo que el producto va a dar como resultado un escalar entonces la traza no es necesaria. Y su ecuación tendria la forma:
-$$|\psi\rangle = \sum_{ijkl}A_{i}^{[1]}A_{j}^{[2]}A_{k}^{[3]}A_{l}^{[4]}|u_{ij\dots k}\rangle$$
-
-
+If we go back to the example in the image, we can tell that the tensors in the extremes only have 2 connections instead of 3. This means that the product will result in a scalar, thus the trace in the equation is no longer required, leaving us with:
+$|\psi\rangle = \sum_{ijkl}A_{i}^{[1]}A_{j}^{[2]}A_{k}^{[3]}A_{l}^{[4]}|u_{ij\dots k}\rangle$
 
 ```{bibliography}
 ```
