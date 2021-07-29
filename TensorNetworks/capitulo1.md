@@ -86,95 +86,93 @@ A tensor of order $3$ is a mathematical object that most people are not very fam
 The way that tensors are commonly used in physics and mathematics, is through what is called the index notation and the Einstein sum convention, which we will introduce in the next section.
 
 <<<<<<< HEAD
-### Representacion gráfica de redes tensoriales
+### Graphic representation of tensor networks  
 =======
-## Representación gráfica de redes tensoriales  
+## Graphic representation of tensor networks  
 >>>>>>> ab3240fc3d5a0e570b63d074e8d67108b12d434e
 
-Utilizamos una notación de diagramas para los tensores, donde cada tensor es dibujado como una figura sólida con un número de conexiones correspondientes a su orden. A continuación mostramos unos ejemplos:
+We use a diagram notation for tensors, where every tensor is drawn as a solid figure with connections according to its order. Here are some examples:
 
-**El Vector** $A_{i}$ se representa como:
+**The Vector** $A_{i}$ is represented as:
 
 ```{image} images/vector_tensor.png
-:alt: Un vector en su representación gráfica
+:alt: A vector in its graphic representation
 :width: 140px
 :align: center
 ```
 
-**La matriz** $B_{ij}$ se representa como:
+**The matrix** $B_{ij}$ is represented as:
 
 ```{image} images/matrix_tensor.png
-:alt: Una matríz en su representación gráfica
+:alt: A matrix in its graphic representation
 :width: 140px
 :align: center
 ```
 
-**Un tensor de orden 3** $C_{ijk}$ se representa como:
+**A tensor of order 3** $C_{ijk}$ is represented as:
 
 ```{image} images/tensor_orden_3.png
-:alt: Un tensor de orden 3 en su representación gráfica
+:alt: A tensor of order 3 in its graphic representation
 :width: 140px
 :align: center
 ```
 
-Podemos formar redes de múltiples tensores donde un índice compartido por dos tensores denota una suma o contracción sobre el índice.
+We can form networks of tensors where an index shared by two different tensors means a sum or contraction over that index.
 
 ```{image} images/contraccion.png
-:alt: Representación gráfica de una contracción entre dos tensores 
+:alt: Graphic representation of a contraction between two tensors
 :width: 270px
 :align: center
 ```
 
-La multiplicación de dos matrices $A$ y $B$ se puede detonar en forma de suma como:
-$C_{ik} = \sum_{j}A_{ij}B_{jk} $. Su equivalente en diagramas de tensores es:
-
+The multiplication of two matrices $A$ and $B$ can be writen in sum notation as:
+$C_{ik} = \sum_{j}A_{ij}B_{jk} $. The equivalent to this in tensor diagrams is;
 
 ```{image} images/ejemplo1.png
-:alt: Representación gráfica de una contracción entre dos tensores, denotando una multiplicación de matrices 
+:alt: Graphic representation between two tensors, denoting a matrix multiplication 
 :width: 270px
 :align: center
 ```
-De similar manera, podemos pensar en cómo representar otras operaciones comunes con matrices, como el producto interno. Si ahora consideramos dos vectores $A$ y $B$, su producto interno $\sum_{i}A_{i}\cdot B_{i}$ va a tener un equivalente en diagramas de tensores de forma:
+
+Similarly, we can think of how to represent other common operations with matrices, like the inner product. If we now consider vectors $A$ y $B$, their inner product $\sum_{i}A_{i}\cdot B_{i}$ is going to have an equivalent tensor diagram in the form of:
 
 ```{image} images/prod_interno1.png
-:alt: Representación gráfica de un producto interno con vectores
+:alt: Graphic representation of an inner product with vectors.
 :width: 270px
 :align: center
 ```
 
-Con dos tensores $D$ y $E$ de rango 4 por ejemplo su producto interno $\sum_{ijkl}D_{ijkl}\cdot E_{ijkl}$ es equivalente al diagrama:
+With two tensors $D$ and $E$ of order 4, their inner product $\sum_{ijkl}D_{ijkl}\cdot E_{ijkl}$ is equivalent to the diagram:
 
 ```{image} images/prod_interno2.png
-:alt: Representación gráfica de un producto interno con tensores rango-4
+:alt: Graphic representation of an inner prodcut with order 4 tensors.
 :width: 270px
 :align: center
 ```
-
-Finalmente, también podemos representar la traza de un arreglo. Considerando una matriz $A$, su traza $\sum_{i}A_{ii}$ tiene un diagrama equivalente con la forma:
+Finally, we can also represent the trace of an array. Considering the matrix $A$, its trace $\sum_{i}A_{ii}$ has an equivalent diagram:
 
 ```{image} images/traza.png
-:alt: Representación gráfica de la traza de una matriz
+:alt: Graphic representation of the trace of a matrix
 :width: 270px
 :align: center
 ```
-
-Podemos ver el poder de la notación con diagramas de tensores en la contracción de 3 tensores, donde en notación de sumatoria se expresa como: 
-$D_{ijk} = \sum_{lmn}A_{ljm}B_{iln}C_{nmk} $. En cambio la notacion con diagramas es mucho mas sencilla de interpretar:
+We can now see the power of using graphic notation for tensors in the contraction of three tensors. A sum notation would be expressed as:
+$D_{ijk} = \sum_{lmn}A_{ljm}B_{iln}C_{nmk} $. Instead, graphic notation is much easier to interpret:
 
 ```{image} images/ejemplo2.png
-:alt: Representación gráfica de una contracción entre tres tensores
+:alt: Graphic representation of a contraction between three tensors
 :width: 270px
 :align: center
 ```
 
-En muchas aplicaciones, la meta es aproximar un tensor de alto orden, como el siguiente:
+In many applications, the goal is to approximate a high order tensor, like this one:
 
 ```{image} images/tensor_N.png
-:alt: Tensor de orden N
+:alt: N-order tensor
 :width: 270px
 :align: center
 ```
-A un red tensorial compuesta de muchos tensores de bajo orden:
+To a tensor network of composed of several low order tensors:
 
 ```{image} images/tensor_N_2.png
 :alt: Red tensorial de N tensores de bajo orden
@@ -182,15 +180,14 @@ A un red tensorial compuesta de muchos tensores de bajo orden:
 :align: center
 ```
 
-La representación de redes tensoriales es muy útil por varias razones:
+The graphic representation of tensor networks is useful for many reasons:
 
-1. Pueden ofrecer una representación más comprimida de estructuras de datos grandes
-2. Permite una caracterización de la estructura de los datos. Además de que la notación de diagramas permite una intuición visual más clara. 
-3. Ya que la descomposición de los datos es robusta, se pueden utilizar para trabajar con ruido o con datos faltantes.
-4. Permite tener un Framework unificado para manipular grandes datos. Como evaluar información estadística utilizando una colección pequeña de redes tensoriales sin la necesitada de tener conocimiento específico sobre la estructura de todo el sistema o de lo que representa.
+1. It can offer a more compressed representation of structures with lots of data.
+2. It makes characterization of the data structure easier, as well as bringing a more visual and intuitive notation.
+3. Due to the data's robust decomposition, they can be used to work with noise or missing data.
+4. It allows a unified framework to handle big data. Such as evaluating statistical information using a small set of tensor networks without the need to have specific knowledge about the structure of the whole system or whatever it may represent.
 
-
-La **teoría de redes tensoriales** se enfoca en entender como esta representación funciona y en que situaciones es más óptima utilizarla. En cambio, los **algoritmos de redes tensoriales** se enfocan en métodos para obtener , manipular y extraer información de estas representaciones.
+**Tensor network theory** is focused on trying to understand how this representation works and in which situations it is optimal to use it. On the other hand, **tensor network algorithms** are focused on finding methods to obtain, manipulate, and extract information from these representations. 
 
 ## Redes tensoriales para sistemas cuánticos de muchos cuerpos
 
