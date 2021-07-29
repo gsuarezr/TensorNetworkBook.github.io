@@ -23,8 +23,6 @@ The interest resurfaced thanks to the use of the theory of tensor networks in nu
 
 A tensor network is a countable array of tensors connected by contractions (sums over indices) between them and not only has it helped in the theorical comprehension of wave functions in quantum mechanics, but they also form the basis for many powerful approaches to numerical simulation. So... ¿What is this book about? The following texts is mainly concerned in what is commonly called "tensor network methods" whiche is the set of tools associated with the computation and simplification of tensor networks. These methods, on top of being used in the aforementioned areas of physics of condensed matter {cite}`1308.3318` and machine learning {cite}`NIPS2015_6855456e`, they are also present in quantum information theory {cite}`PhysRevLett.125.190402`, open quantum systems {cite}`PhysRevLett.121.227401`, quantum gravity {cite}`Chirco_2018` and many other areas of science.
 
-En este capítulo, introduciremos algunos de los conceptos básicos que son necesarios para entender lo que es una red tensorial, y como las técnicas de esta teoría pueden ser usadas en cálculos numéricos. Comenzaremos por lo primero que debemos entender, que es un tensor. 
-
 In this chapter, we will introduce some of the basic concepts that are necessary to understand what is a tensor network and how the techniques used in this theory can be implemented in numerical computations. We begin with the most basic thing we need to understand, what is a tensor.
 
 
@@ -33,21 +31,13 @@ In this chapter, we will introduce some of the basic concepts that are necessary
 
 
 
-Un tensor es un arreglo multidimensional de números complejos, este concepto matemático generaliza la idea de mapas multilineales, es decir funciones de muchos parámetros que son lineales con respecto a cada uno de ellos. Ahora bien, si después de esta definición un tanto formal no te ha quedado claro, intentemos con una versión un poco más intuitiva.
+A tensor is a multidimensional array of complex numbers; This mathematical concept generalizes the idea of multilinear maps, i.e. functions of many parameters that are linear with respect to each other. Now, if this somewhat formal definition doesn't give you a clear idea of what tensors are, let's try with a more intuitive explanation.
 
+A tensor is a series of numbers denoted with $N$ indices, where $N$ is what we call the "order" of the tensor. We've all dealt with tensors in our lives, for example:
 
+* $5$ is a tensor of order $0$, it is a series of numbers for which we do not need indices to refer to an element. This is the same for any other scalar.
 
-Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo que llamamos el orden del tensor. Todos hemos tratado con tensores en nuestra vida, por ejemplo:
-
-
-
-* $5$ es un tensor de rango $0$, es una serie de numeros para la cual no necesitamos indices para referirnos a un elemento, pasa lo mismo para cualquier escalar
-
-
-
-* El vector $\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}$, es un tensor de rango $1$, necesitamos un indice para referirnos a alguno de sus elementos (i.e $i=1,2$)
-
-
+* The vector $\vec{T}=\begin{pmatrix} 0  \\ 1 \end{pmatrix}$, is a tensor of order $1$, we need a single index to refer to one of its elements (i.e. $i=1,2$)
 
 ```{image} images/vector.png
 :alt: vector
@@ -56,37 +46,33 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 ```
 
 
-
-* Una matriz $\vec{T}=\begin{pmatrix} 0 & 0 \\1 & 1 \end{pmatrix}$ es un tensor de rango $2$, necesitamos 2 índices para identificar inequivocamente cada uno de sus elementos
-
+* A matrix $\vec{T}=\begin{pmatrix} 0 & 0 \\1 & 1 \end{pmatrix}$ is a tensor of range $2$, we need two indices to identify unequivocally every single one of its elements
 
 
 ```{image} images/matriz.png
-:alt: matriz
+:alt: matrix
 :width: 200px
 :align: center
 ```
 
 
-
-* Un tensor de rango 3 es un objeto matemático con el que la mayoría de las personas están menos familiarizadas, pero imaginemos unos números ordenados en un cubo de rubik, para referirnos a ellos se necesitarían 3 índices.
-
+A tensor of order $3$ is a mathematical object that most people are not very familiar with, but let's imagine a set of numbers ordered in a Rubik's cube. To identify each of the numbers, we would need $3$ indices.
 
 
 ```{image} images/tensor.png
-:alt: Tensor de rango 3
+:alt: Tensor of order 3
 :width: 200px
 :align: center
 ```
 
 
-|      Nombre     |             Ejemplo             | Rango |              Notacion             |
+|      Name       |             Example             | Order |              Notation             |
 |:---------------:|:-------------------------------:|:-----:|:---------------------------------:|
-|     Escalar     |            Constante            |   0   |             $\lambda$             |
-|      Vector     |         Funcion de onda         |   1   |             $\psi_{i}$            |
-|      Matriz     |             Operador            |   2   |             $A_{i.j}$             |
+|     Escalar     |             Constant            |   0   |             $\lambda$             |
+|      Vector     |          Wave function          |   1   |             $\psi_{i}$            |
+|      Matrix     |             Operator            |   2   |             $A_{i.j}$             |
 |       : :       |               : :               |  : :  |                : :                |
-| Tensor Rango-N  | Funcion de onda para N-cuerpos  |   N   | $\psi_{\alpha_{1},...\alpha_{N}}$ |
+|  N-order Tensor |       N-body Wave function      |   N   | $\psi_{\alpha_{1},...\alpha_{N}}$ |
 
 
 
@@ -97,10 +83,10 @@ Un tensor es una serie de números denotados con $N$ índices, donde $N$ es lo q
 
 
 
-La manera en la que se suele tratar con los tensores en física y matemática, es mediante lo que se conoce como notación indicial y el convenio de suma de Einstein, las cuales introduciremos en la próxima sección 
+The way that tensors are commonly used in physics and mathematics, is through what is called the index notation and the Einstein sum convention, which we will introduce in the next section.
 
 <<<<<<< HEAD
-### Representacion gráfica de redes tensoriales  
+### Representacion gráfica de redes tensoriales
 =======
 ## Representación gráfica de redes tensoriales  
 >>>>>>> ab3240fc3d5a0e570b63d074e8d67108b12d434e
